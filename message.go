@@ -128,7 +128,7 @@ func (Message *Message) StringMap() (map[string]string, error) {
 			return nil, err
 		}
 
-		value, err := Message.Multi[1*2+1].String()
+		value, err := Message.Multi[i*2+1].String()
 		if err != nil {
 			return nil, err
 		}
