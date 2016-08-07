@@ -1,7 +1,7 @@
 package protocol
 
 import (
-	"bufio"
+	// "bufio"
 	"reflect"
 	"strings"
 	"testing"
@@ -118,8 +118,9 @@ func TestMutli(t *testing.T) {
 	}
 }
 func parseMessage(t *testing.T, s string) *Message {
-	bio := bufio.NewReader(strings.NewReader(s))
-	r, e := UnpackFromReader(bio)
+	// bio := bufio.NewReader(strings.NewReader(s))
+	// r, e := UnpackFromReader(bio)
+	r, e := NewReader(strings.NewReader(s)).ReadMessage()
 	if e != nil {
 		t.Error(e)
 		t.Logf("Fail: %s", s)

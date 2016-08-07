@@ -31,11 +31,9 @@ func PackCommand(args ...interface{}) ([]byte, error) {
 
 	argsNum := len(args)
 	buf := make([]byte, 0, 10*argsNum)
-	if argsNum > 1 {
-		buf = append(buf, '*')
-		buf = strconv.AppendInt(buf, int64(argsNum), 10)
-		buf = appendTail(buf)
-	}
+	buf = append(buf, '*')
+	buf = strconv.AppendInt(buf, int64(argsNum), 10)
+	buf = appendTail(buf)
 
 	for _, arg := range args {
 		switch v := arg.(type) {

@@ -60,8 +60,12 @@ func UnpackFromReader(r *bufio.Reader) (*Message, error) {
 		}
 
 		if l < 0 {
-			return nil, nil
+			return &Message{
+				Bulk: nil,
+				Type: MessageBulk,
+			}, nil
 		}
+
 		buf := make([]byte, l+2)
 		if _, err := io.ReadFull(r, buf); err != nil {
 			return nil, err

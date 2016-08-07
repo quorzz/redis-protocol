@@ -20,28 +20,28 @@ type normalizeArgsTestCase struct {
 
 var packTestCases = []packTestCase{
 	{
-		"fooBar123: -/_", []byte("$14\r\nfooBar123: -/_\r\n"), false,
+		"fooBar123: -/_", []byte("*1\r\n$14\r\nfooBar123: -/_\r\n"), false,
 	},
 	{
-		000, []byte("$1\r\n0\r\n"), false,
+		000, []byte("*1\r\n$1\r\n0\r\n"), false,
 	},
 	{
-		3.141592653, []byte("$11\r\n3.141592653\r\n"), false,
+		3.141592653, []byte("*1\r\n$11\r\n3.141592653\r\n"), false,
 	},
 	{
-		0.628, []byte("$5\r\n0.628\r\n"), false,
+		0.628, []byte("*1\r\n$5\r\n0.628\r\n"), false,
 	},
 	{
-		false, []byte("$1\r\n0\r\n"), false,
+		false, []byte("*1\r\n$1\r\n0\r\n"), false,
 	},
 	{
-		true, []byte("$1\r\n1\r\n"), false,
+		true, []byte("*1\r\n$1\r\n1\r\n"), false,
 	},
 	{
-		nil, []byte("$0\r\n\r\n"), false,
+		nil, []byte("*1\r\n$0\r\n\r\n"), false,
 	},
 	{
-		[]byte{'H', 'i', '!'}, []byte("$3\r\nHi!\r\n"), false,
+		[]byte{'H', 'i', '!'}, []byte("*1\r\n$3\r\nHi!\r\n"), false,
 	},
 
 	// error case
